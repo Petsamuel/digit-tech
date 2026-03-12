@@ -40,10 +40,10 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
     <div className="relative min-h-screen bg-background flex flex-col lg:flex-row">
       {/* Back Button */}
       <Link 
-        href="/#services"
-        className="fixed top-24 left-8 z-110 p-3 rounded-full bg-primary/10 hover:bg-primary text-primary hover:text-white transition-all shadow-lg backdrop-blur-md border border-primary/20"
+        href="/products"
+        className="fixed top-24 left-8 z-110 p-3 rounded-full bg-background/80 hover:bg-primary text-foreground hover:text-white transition-all shadow-lg backdrop-blur-md border border-border/40 group"
       >
-        <ArrowLeft className="w-5 h-5" />
+        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
       </Link>
 
       {/* Left Side: Visuals & Branding */}
@@ -91,7 +91,7 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             transition={{ delay: 0.7 }}
           >
             <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-6">Overview</h2>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-foreground leading-relaxed font-medium">
               {service.description} Our infrastructure is engineered to provide seamless integration and unparalleled performance for the modern digital economy.
             </p>
           </motion.section>

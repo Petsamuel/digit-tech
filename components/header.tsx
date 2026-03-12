@@ -1,9 +1,10 @@
 "use client";
 
-import * as React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, MoveRight } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import {
@@ -16,9 +17,11 @@ import { allServices } from "@/lib/services-data";
 
 
 export function Header() {
-  const [scrolled, setScrolled] = React.useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -26,12 +29,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const showBackground = scrolled || !isHome;
+
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        scrolled 
-          ? "border-b border-border/40 backdrop-blur-md bg-background/80 py-3" 
+        showBackground
+          ? "border-b border-border/40 backdrop-blur-md bg-background/80 py-3"
           : "bg-transparent py-5"
       )}
     >
@@ -39,12 +44,12 @@ export function Header() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-1.5 group">
             <span className="text-xl font-bold tracking-tighter text-foreground">Digitvant Tech</span>
-            <div className="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse shadow-[0_0_10px_var(--brand-orange)]" />
+            {/* <div className="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse shadow-[0_0_10px_var(--brand-orange)]" /> */}
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors outline-none cursor-pointer bg-transparent border-none p-0">
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors outline-none cursor-pointer bg-transparent border-none p-0">
                 Products
                 <ChevronDown className="w-3 h-3 opacity-50" />
               </DropdownMenuTrigger>
@@ -59,11 +64,11 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {["Solutions", "Docs", "Partners", "Resources", "Contact",].map((item) => (
+            {["Solutions", "Partners", "Resources", "Contact"].map((item) => (
               <Link
                 key={item}
                 href={item === "Solutions" ? "/products" : `/${item.toLowerCase()}`}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-semibold text-foreground/80 hover:text-primary transition-colors"
               >
                 {item}
               </Link>
