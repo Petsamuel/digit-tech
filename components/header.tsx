@@ -46,7 +46,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-1.5 group">
-            <span className="text-xl font-bold tracking-tighter text-foreground">REDSUN</span>
+            <span className="text-xl font-bold tracking-tighter text-foreground">Digitvant Tech</span>
             <div className="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse shadow-[0_0_10px_var(--brand-orange)]" />
           </Link>
 
@@ -67,10 +67,10 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {["Docs", "Partners", "Resources", "Customers", "Pricing"].map((item) => (
+            {["Solutions", "Docs", "Partners", "Resources", "Customers", "Pricing"].map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase()}`}
+                href={item === "Solutions" ? "#services" : `/${item.toLowerCase()}`}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {item}

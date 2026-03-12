@@ -56,7 +56,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.48 0.22 254); /* #015ee5 */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -67,7 +67,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: var(--primary);
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
@@ -76,12 +76,13 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --brand-orange: oklch(0.7 0.25 45);
+  --sidebar-ring: var(--primary);
 }
 
 .dark {
@@ -122,10 +123,10 @@
 
 @layer utilities {
   .orange-glow {
-    box-shadow: 0 0 25px 5px color-mix(in srgb, var(--brand-orange) 40%, transparent);
+    box-shadow: 0 0 25px 5px color-mix(in srgb, var(--primary) 40%, transparent);
   }
   .text-glow {
-    text-shadow: 0 0 20px color-mix(in srgb, var(--brand-orange) 50%, transparent);
+    text-shadow: 0 0 20px color-mix(in srgb, var(--primary) 50%, transparent);
   }
 }
 
@@ -139,4 +140,42 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
   }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-orange) transparent;
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange);
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 40%);
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 40%);
+}
+
+/* Custom scrollbar for cookie consent settings */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
 }
