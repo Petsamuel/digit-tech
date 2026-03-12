@@ -19,7 +19,6 @@ import { allServices } from "@/lib/services-data";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,22 +28,27 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const showBackground = scrolled || !isHome;
+
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        showBackground
+        scrolled
           ? "border-b border-border/40 backdrop-blur-md bg-background/80 py-3"
           : "bg-transparent py-5"
       )}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-1.5 group">
-            <span className="text-xl font-bold tracking-tighter text-foreground">Digitvant Tech</span>
-            {/* <div className="w-2 h-2 rounded-full bg-primary group-hover:animate-pulse shadow-[0_0_10px_var(--brand-orange)]" /> */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <img
+              src="/favicon.png"
+              alt="Digitvant Logo"
+              className="w-7 h-7 object-contain transition-transform group-hover:scale-110"
+            />
+            <span className="text-xl font-bold tracking-tighter text-foreground relative">Digitvant<span className="text-xs text-muted-foreground absolute left-8 -bottom-2">
+              Technology</span></span>
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

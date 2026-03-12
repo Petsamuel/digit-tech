@@ -214,12 +214,12 @@ export default function ContactPage() {
                   <p className="text-4xl font-black">24/7</p>
                   <p className="text-xs font-black uppercase tracking-widest opacity-60">System Monitoring</p>
                </div>
-               <div className="w-[1px] h-12 bg-white/20 hidden md:block" />
+               <div className="w-px h-12 bg-white/20 hidden md:block" />
                <div className="text-center">
                   <p className="text-4xl font-black">&lt;2h</p>
                   <p className="text-xs font-black uppercase tracking-widest opacity-60">Response Latency</p>
                </div>
-               <div className="w-[1px] h-12 bg-white/20 hidden md:block" />
+               <div className="w-px h-12 bg-white/20 hidden md:block" />
                <div className="text-center">
                   <p className="text-4xl font-black">100%</p>
                   <p className="text-xs font-black uppercase tracking-widest opacity-60">Technical Support</p>

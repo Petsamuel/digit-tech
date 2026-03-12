@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Handshake, ArrowRight, Globe } from "lucide-react";
+import { Handshake, ArrowRight, Globe, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const partners = [
@@ -30,7 +30,7 @@ export default function PartnersPage() {
           >
             <h4 className="text-primary font-bold tracking-[0.4em] text-xs uppercase italic relative inline-block">Global Network</h4>
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-foreground uppercase leading-[0.85]">
-              Ecosystem <br /> 
+              Ecosystem <br />
               <span className="text-primary italic">Intelligence</span>
             </h1>
             <p className="text-xl text-foreground font-medium max-w-2xl leading-relaxed">
@@ -58,51 +58,17 @@ export default function PartnersPage() {
                 className="group relative aspect-square md:aspect-video rounded-[32px] bg-background/50 backdrop-blur-sm border border-border/10 flex items-center justify-center p-8 hover:border-primary/50 transition-all duration-500 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img 
-                  src={partner.logo} 
+                <img
+                  src={partner.logo}
                   alt={partner.name}
-                  className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700 brightness-150 group-hover:brightness-100 invert dark:invert-0"
+                  className="w-full h-full object-contain transition-all duration-700 opacity-80 saturate-[0.4] group-hover:saturate-100 group-hover:opacity-100 dark:brightness-125 group-hover:dark:brightness-100"
                 />
               </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Global Reach Map Mockup */}
-        <motion.div
-           initial={{ opacity: 0, y: 40 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="relative p-12 md:p-24 rounded-[64px] bg-zinc-950 border border-border/40 overflow-hidden mb-32"
-        >
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 text-white">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.9]">
-                Global <br /> <span className="text-primary italic">Footprint</span>
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-center gap-6">
-                  <span className="text-5xl font-black text-primary">50+</span>
-                  <p className="text-white/60 font-medium">Global Nodes Integrated Across <br /> 4 Continents and 12 Jurisdictions.</p>
-                </div>
-                <Button className="rounded-full h-14 px-8 bg-primary hover:bg-primary/90 text-white gap-2 font-bold brand-glow">
-                  Explore Network Map <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-            <div className="relative aspect-square lg:aspect-video rounded-3xl bg-primary/5 border border-primary/20 flex items-center justify-center overflow-hidden">
-               {/* Mock Map Background */}
-               <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center grayscale" />
-               <motion.div 
-                 animate={{ scale: [1, 1.2, 1] }}
-                 transition={{ duration: 4, repeat: Infinity }}
-                 className="relative w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_var(--brand-orange)]"
-               />
-               <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-primary/40 rounded-full" />
-               <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-primary/40 rounded-full" />
-            </div>
-          </div>
-        </motion.div>
+
 
         {/* Final CTA */}
         <motion.div
