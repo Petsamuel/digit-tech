@@ -39,7 +39,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         scrolled 
-          ? "border-b border-white/5 backdrop-blur-md bg-background/80 py-3" 
+          ? "border-b border-border/40 backdrop-blur-md bg-background/80 py-3" 
           : "bg-transparent py-5"
       )}
     >
@@ -84,7 +84,7 @@ export function Header() {
             Try for Free
           </Link>
           <ModeToggle />
-          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 gap-2 group orange-glow">
+          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 gap-2 group brand-glow">
             Sign in
             <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>

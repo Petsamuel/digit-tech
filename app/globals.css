@@ -83,6 +83,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --brand-orange: oklch(0.7 0.25 45);
   --sidebar-ring: var(--primary);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -119,10 +121,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @layer utilities {
-  .orange-glow {
+  .brand-glow {
     box-shadow: 0 0 25px 5px color-mix(in srgb, var(--primary) 40%, transparent);
   }
   .text-glow {
@@ -144,7 +148,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--brand-orange) transparent;
+  scrollbar-color: var(--primary) transparent;
   scroll-behavior: smooth;
 }
 
@@ -159,21 +163,15 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--brand-orange);
+  background: var(--primary);
   border-radius: 3px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-orange);
+  background: var(--primary);
 }
 
-.dark *::-webkit-scrollbar-thumb {
-  background: hsl(0, 0%, 40%);
-}
-
-.dark *::-webkit-scrollbar-thumb:hover {
-  background: hsl(0, 0%, 40%);
-}
+/* Removed hardcoded dark scrollbar to allow theme-aware --primary to handle it */
 
 /* Custom scrollbar for cookie consent settings */
 .custom-scrollbar::-webkit-scrollbar {

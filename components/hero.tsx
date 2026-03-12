@@ -11,13 +11,13 @@ export function Hero() {
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         {/* Subtle diagonal streaks */}
-        <div className="absolute -top-[10%] -left-[10%] w-[120%] h-[120%] bg-[radial-gradient(45%_45%_at_50%_50%,rgba(255,138,0,0.03)_0%,transparent_100%)]" />
-        <div className="absolute top-0 left-0 w-full h-screen bg-linear-to-b from-transparent to-[rgba(0,0,0,0.8)]" />
-        
+        <div className="absolute -top-[10%] -left-[10%] w-[120%] h-[120%] bg-[radial-gradient(45%_45%_at_50%_50%,rgba(255,138,0,0.03)_0%,transparent_100%)] " />
+        <div className="absolute top-0 left-0 w-full h-screen bg-linear-to-b from-transparent to-background/90" />
+
         {/* Bottom Orbital Glow */}
-        <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[140%] aspect-square rounded-full border border-primary/20 bg-background flex items-start justify-center overflow-hidden">
-           <div className="w-full h-2 bg-linear-to-r from-transparent via-primary/50 to-transparent blur-md -mt-px" />
-           <div className="absolute top-0 w-full h-[150px] bg-linear-to-b from-primary/10 to-transparent blur-3xl" />
+        <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[140%] aspect-square rounded-full border-8 border-primary/20 bg-background flex items-start justify-center overflow-hidden  blur">
+          <div className="w-full h-2 bg-linear-to-r from-transparent via-primary/50 to-transparent blur-md -mt-px" />
+          <div className="absolute top-0 w-full h-[150px] bg-linear-to-b from-primary/10 to-transparent blur-3xl" />
         </div>
       </div>
 
@@ -45,11 +45,11 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-4xl font-display"
         >
-          Intelligent Solutions <br />
-          <span className="text-foreground">Powered by AI.</span>
+          The Digital Infrastructure  <br />
+          <span className="text-foreground">Your Organization Needs</span>
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ export function Hero() {
           workflow management our innovative dashboard.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}

@@ -76,7 +76,7 @@ export function Services() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className={`h-full p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-500 ${service.borderColor} hover:shadow-2xl hover:shadow-primary/5`}>
+              <div className={`h-full p-8 rounded-3xl border border-border/50 bg-muted/5 backdrop-blur-sm transition-all duration-500 ${service.borderColor} hover:shadow-2xl hover:shadow-primary/5`}>
                 {/* Icon Container */}
                 <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-xl border border-white/5`}>
                   <service.icon className={`w-7 h-7 ${service.iconColor}`} />
@@ -120,7 +120,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-20 p-8 rounded-3xl border border-white/10 bg-linear-to-r from-primary/10 via-transparent to-primary/10 flex flex-col md:flex-row items-center justify-between gap-8"
+          className="mt-20 p-8 rounded-3xl border border-border/50 bg-muted/5 flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <div className="flex items-center gap-6">
             <div className="flex -space-x-3">
@@ -148,7 +148,7 @@ export function Services() {
              </div>
           </div>
 
-          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 orange-glow font-bold">
+          <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 brand-glow font-bold">
             Get Started Now
           </Button>
         </motion.div>
