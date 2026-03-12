@@ -23,8 +23,8 @@ import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "REDSUN AI - Intelligent Solutions",
-  description: "Experience the next generation of AI-powered workflow management.",
+  title: "DIGITVANT-TECHNOLOGY - The Digital Infrastructure Your Organization Needs",
+  description: "DIGITVANT-TECHNOLOGY is a leading provider of AI-powered workflow management solutions. We help organizations streamline their operations and improve efficiency.",
 };
 
 export default function RootLayout({
