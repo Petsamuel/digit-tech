@@ -84,9 +84,7 @@ export function WhatWeDo() {
                 SCHEDULE A FREE CALL
                 <ArrowDownRight className="w-5 h-5 ml-2 -rotate-45" />
               </Button>
-              <span className="text-primary-foreground/60 text-xs font-bold uppercase tracking-widest line-through decoration-primary-foreground/40 decoration-2">
-                worth 200 USD
-              </span>
+              
             </div>
           </div>
         </motion.div>

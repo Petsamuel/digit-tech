@@ -8,20 +8,12 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
+  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { allServices } from "@/lib/services-data";
 
-const products = [
-  "SaaS Core Banking (One Core)",
-  "Payment Gateway",
-  "Crm solution",
-  "HRMS",
-  "EDMS",
-  "LMS",
-  "TALENT as a Service",
-];
 
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -57,20 +49,20 @@ export function Header() {
                 <ChevronDown className="w-3 h-3 opacity-50" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 bg-background/95 backdrop-blur-sm border-white/10" align="start">
-                {products.map((product) => (
-                  <DropdownMenuItem key={product} className="cursor-pointer focus:bg-primary/10">
-                    <Link href={`/products/${product.toLowerCase().replace(/\s+/g, "-")}`} className="w-full">
-                      {product}
+                {allServices.map((service) => (
+                  <DropdownMenuItem key={service.slug} className="cursor-pointer focus:bg-primary/10">
+                    <Link href={`/products/${service.slug}`} className="w-full">
+                      {service.title}
                     </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {["Solutions", "Docs", "Partners", "Resources", "Customers", "Pricing"].map((item) => (
+            {["Solutions", "Docs", "Partners", "Resources", "Contact",].map((item) => (
               <Link
                 key={item}
-                href={item === "Solutions" ? "#services" : `/${item.toLowerCase()}`}
+                href={item === "Solutions" ? "/products" : `/${item.toLowerCase()}`}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {item}
@@ -85,7 +77,7 @@ export function Header() {
           </Link>
           <ModeToggle />
           <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 gap-2 group brand-glow">
-            Sign in
+            Get Started
             <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

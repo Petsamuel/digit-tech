@@ -1,89 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronRight,
-  Landmark,
-  Wallet,
-  Handshake,
-  Users,
-  FileText,
-  GraduationCap,
-  Sparkles,
-  ArrowRight,
-  Code
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { allServices } from "@/lib/services-data";
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronRight, Sparkles, ArrowRight, Landmark, Wallet, Handshake, Users, FileText, GraduationCap, Code } from "lucide-react";
 
-const allServices = [
-  {
-    category: "FINTECH CORE",
-    title: "One Core Banking Infrastructure",
-    description: "Cloud-native SaaS core banking engine designed for the next generation of financial institutions. Scalable, secure, and ready for global deployment.",
-    icon: Landmark,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  },
-  {
-    category: "PAYMENTS",
-    title: "Unified Global Payment Gateway",
-    description: "Secure, global payment processing with unified reconciliation, advanced fraud protection, and instant settlement capabilities.",
-    icon: Wallet,
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  },
-  {
-    category: "CUSTOMER SUCCESS",
-    title: "Strategic CRM & Management",
-    description: "Deepen customer engagement with our intelligent CRM solution. Built to drive retention through data-driven insights and personalized journeys.",
-    icon: Handshake,
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-    theme: "light"
-  },
-  {
-    category: "HUMAN CAPITAL",
-    title: "Enterprise HRMS Platform",
-    description: "Comprehensive workforce management from recruitment to payroll. Automate performance tracking and empower your entire organizational structure.",
-    icon: Users,
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  },
-  {
-    category: "ENTERPRISE",
-    title: "Secure Document Management (EDMS)",
-    description: "Accelerate your transition to a paperless office with secure, encrypted, and easily accessible cloud-native document storage systems.",
-    icon: FileText,
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&q=80&w=800",
-    theme: "light"
-  },
-  {
-    category: "LEARNING",
-    title: "Intelligent Learning Systems (LMS)",
-    description: "Immersive training modules designed to track progress and certify professional growth across your global organizational nodes.",
-    icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  },
-  {
-    category: "TALENT",
-    title: "Talent as a Service (TaaS)",
-    description: "Scale your engineering and technical teams on demand. Access a global pool of elite talent vetted for your specific technological stack.",
-    icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  }, {
-    category: "AI & AUTOMATION",
-    title: "AI & Automation",
-    description: "Leverage cutting-edge artificial intelligence and automation solutions to streamline operations, enhance decision-making, and unlock new growth opportunities.",
-    icon: Code,
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
-    theme: "dark"
-  }
-];
+const iconMap = {
+  landmark: Landmark,
+  wallet: Wallet,
+  handshake: Handshake,
+  users: Users,
+  "file-text": FileText,
+  "graduation-cap": GraduationCap,
+  sparkles: Sparkles,
+  code: Code,
+};
 
-function ServiceCard({ service, index }: { service: typeof allServices[0], index: number }) {
+function ServiceCard({ service, index, onExplore }: { service: typeof allServices[0], index: number, onExplore: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
+  const Icon = iconMap[service.iconId as keyof typeof iconMap] || Sparkles;
 
   return (
     <motion.div
@@ -93,6 +31,7 @@ function ServiceCard({ service, index }: { service: typeof allServices[0], index
       transition={{ delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onExplore}
       className="relative h-[550px] w-full flex flex-col overflow-hidden cursor-pointer group border-r border-border/10 bg-background"
     >
       {/* Background Image Container */}
@@ -118,7 +57,7 @@ function ServiceCard({ service, index }: { service: typeof allServices[0], index
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <div className={`p-2 rounded-lg bg-primary/10 border border-primary/20`}>
-              <service.icon className="w-4 h-4 text-primary" />
+              <Icon className="w-4 h-4 text-primary" />
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-primary transition-colors">
               {service.category}
@@ -164,8 +103,11 @@ function ServiceCard({ service, index }: { service: typeof allServices[0], index
 }
 
 export function Services() {
+  const router = useRouter();
+
   return (
     <section className="py-24 bg-background border-t border-border/10" id="services">
+
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -187,13 +129,13 @@ export function Services() {
 
       {/* Grid container with overflow control for clean edge-to-edge look */}
       <div className="border-y border-border/10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {allServices.slice(0, 4).map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
+            <ServiceCard key={index} service={service} index={index} onExplore={() => router.push(`/products/${service.slug}`)} />
           ))}
           {/* Second row wraps on mobile/tablet */}
           {allServices.slice(4).map((service, index) => (
-            <ServiceCard key={index + 4} service={service} index={index + 4} />
+            <ServiceCard key={index + 4} service={service} index={index + 4} onExplore={() => router.push(`/products/${service.slug}`)} />
           ))}
         </div>
       </div>

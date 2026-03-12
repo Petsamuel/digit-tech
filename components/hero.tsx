@@ -66,11 +66,11 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <Button variant="outline" size="lg" className="rounded-full px-8 bg-white/5 border-white/10 hover:bg-white/10 gap-2 font-semibold">
-            Demo
+            Request Demo
             <ChevronRight className="w-4 h-4 opacity-50" />
           </Button>
           <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-semibold orange-glow">
-            Sign in
+            Get Started
             <MoveRight className="w-4 h-4" />
           </Button>
         </motion.div>
