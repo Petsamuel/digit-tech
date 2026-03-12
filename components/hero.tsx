@@ -63,7 +63,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-row items-center gap-4"
         >
           <Button variant="outline" size="lg" className="rounded-full px-8 bg-white/5 border-white/10 hover:bg-white/10 gap-2 font-semibold">
             Request Demo

@@ -79,7 +79,7 @@ export function WhatWeDo() {
             <div className="flex flex-col md:flex-row items-center gap-6">
               <Button 
                 variant="outline" 
-                className="rounded-full bg-transparent border-primary-foreground/40 hover:bg-primary-foreground hover:text-primary text-primary-foreground font-bold px-8 py-6 h-auto tracking-tight transition-all border-2"
+                className="rounded-full bg-transparent border-primary-foreground/40 hover:bg-primary-foreground hover:text-black text-primary-foreground font-bold px-8 py-6 h-auto tracking-tight transition-all border-2"
               >
                 SCHEDULE A FREE CALL
                 <ArrowDownRight className="w-5 h-5 ml-2 -rotate-45" />

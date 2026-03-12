@@ -19,7 +19,7 @@ import {
 
 export function DashboardPreview() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-background">
+    <section className="relative py-24 lf:px-6 overflow-hidden bg-background">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

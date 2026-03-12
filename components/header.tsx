@@ -86,13 +86,13 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link href="/try" className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground">
+          <Link href="/try" className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hidden lg:block">
             Try for Free
           </Link>
           <ModeToggle />
           <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 gap-2 group brand-glow">
             Get Started
-            <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
           </Button>
         </div>
       </nav>

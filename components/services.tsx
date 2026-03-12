@@ -113,9 +113,9 @@ export function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-end justify-between gap-8"
+          className="flex flex-col md:flex-row lg:items-end justify-between gap-8 items-start"
         >
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             <h4 className="text-primary font-bold tracking-widest text-xs uppercase">Our Core Architecture</h4>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase leading-[0.9]">
               Discover <br /> <span className="text-primary italic">The Platform</span>
