@@ -6,6 +6,9 @@ import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { DashboardPreview } from "@/components/dashboard-preview";
 import { BrandMarquee } from "@/components/brand-marquee";
+import { WhatWeDo } from "@/components/what-we-do";
+import { Stats } from "@/components/stats";
+import { Testimonials } from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
         <DashboardPreview />
         <BrandMarquee />
         <Services />
+        <Stats />
+        <Testimonials />
+        <WhatWeDo />
       </main>
       <Footer />
     </div>
