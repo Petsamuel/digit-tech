@@ -16,16 +16,21 @@ import {
 import { allServices } from "@/lib/services-data";
 
 
+import { useScroll, useMotionValueEvent } from "framer-motion";
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
   const pathname = usePathname();
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const isScrolled = latest > 20;
+    setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+  });
+
+  // Handle initial state on load/refresh
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (window.scrollY > 20) setScrolled(true);
   }, []);
 
 
