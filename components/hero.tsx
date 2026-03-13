@@ -28,7 +28,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center p-1 pr-3 rounded-full bg-white/5 border border-white/10 text-sm backdrop-blur-sm group cursor-pointer hover:border-primary/30 transition-colors">
+          {/* <div className="inline-flex items-center p-1 pr-3 rounded-full bg-white/5 border border-white/10 text-sm backdrop-blur-sm group cursor-pointer hover:border-primary/30 transition-colors">
             <Badge className="rounded-full px-2 py-0.5 mr-2 bg-primary text-white hover:bg-primary border-none text-[10px] font-bold uppercase tracking-wider">
               What's New
             </Badge>
@@ -36,7 +36,7 @@ export function Hero() {
               Ease Update v0.1
               <ChevronRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
             </span>
-          </div>
+          </div> */}
         </motion.div>
 
         <motion.h1
@@ -53,10 +53,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-medium"
         >
-          Welcome to Ease, the ultimate solution to streamline your <br className="hidden md:block" />
-          workflow management our innovative dashboard.
+          Engineering the future of modular financial technology. Scalable, <br className="hidden md:block" />
+          secure, and integrated pillars for the modern digital economy.
         </motion.p>
 
         <motion.div
@@ -65,11 +65,11 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-row items-center gap-4"
         >
-          <Button variant="outline" size="lg" className="rounded-full px-8 bg-white/5 border-white/10 hover:bg-white/10 gap-2 font-semibold">
+          <Button variant="outline" size="lg" className="rounded-full px-8 bg-secondary/50 border-border hover:bg-secondary transition-all font-bold gap-2">
             Request Demo
-            <ChevronRight className="w-4 h-4 opacity-50" />
+            <ChevronRight className="w-4 h-4 opacity-70" />
           </Button>
-          <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-semibold orange-glow">
+          <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-bold shadow-xl shadow-primary/20 brand-glow">
             Get Started
             <MoveRight className="w-4 h-4" />
           </Button>

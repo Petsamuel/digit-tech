@@ -145,7 +145,7 @@ export default function ContactPage() {
                    <Mail className="w-6 h-6" />
                  </div>
                  <h4 className="font-bold text-lg">General Enquiries</h4>
-                 <p className="text-muted-foreground text-sm font-medium">hello@digitvant.com</p>
+                 <p className="text-muted-foreground text-sm font-medium">Info@digitvanttechnology.com</p>
                </motion.div>
                <motion.div 
                  whileHover={{ x: 10 }}

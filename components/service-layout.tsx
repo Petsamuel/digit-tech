@@ -41,7 +41,7 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
       {/* Back Button */}
       <Link 
         href="/products"
-        className="fixed top-24 left-8 z-110 p-3 rounded-full bg-background/80 hover:bg-primary text-foreground hover:text-white transition-all shadow-lg backdrop-blur-md border border-border/40 group"
+        className="fixed top-24 left-8 z-110 p-4 rounded-full bg-background/95 hover:bg-primary text-foreground hover:text-white transition-all shadow-xl backdrop-blur-xl border border-border/60 group"
       >
         <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
       </Link>
@@ -56,23 +56,24 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
           alt={service.title} 
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-primary/20 via-background/60 to-background z-10" />
+        {/* Darker overlay for better contrast in light mode */}
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80 z-10" />
         
         <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/40 backdrop-blur-md"
           >
-            <Icon className="w-4 h-4 text-primary" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-primary">{service.category}</span>
+            <Icon className="w-4 h-4 text-primary brightness-150" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary brightness-150">{service.category}</span>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9]"
+            className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9] drop-shadow-2xl"
           >
             {service.title.split(' ').map((word, i) => (
               <span key={i} className={i === 0 ? "text-white italic" : ""}>{word} </span>

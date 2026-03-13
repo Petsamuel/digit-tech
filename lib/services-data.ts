@@ -64,7 +64,7 @@ export const allServices = [
     id: "talent-as-a-service",
     slug: "talent-as-a-service",
     category: "TALENT",
-    title: "TALENT as a Service",
+    title: "TEAM as a Service",
     description: "Scale your engineering and technical teams on demand. Access a global pool of elite talent vetted for your specific technological stack.",
     iconId: "sparkles",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
