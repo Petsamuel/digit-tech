@@ -24,7 +24,7 @@ export const allServices = [
     id: "crm-solution",
     slug: "crm-solution",
     category: "CUSTOMER SUCCESS",
-    title: "Crm solution",
+    title: "CRM Solution",
     description: "Deepen customer engagement with our intelligent CRM solution. Built to drive retention through data-driven insights and personalized journeys.",
     iconId: "handshake",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",

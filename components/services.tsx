@@ -185,9 +185,9 @@ export function Services() {
                   <p className="text-white font-bold text-sm">Chidi Okechukwu</p>
                   <p className="text-zinc-500 text-xs">CTO, Zenith Financial Systems</p>
                 </div>
-                <Button variant="outline" className="rounded-full border-primary/40 hover:bg-primary/20 text-white gap-2">
+                {/* <Button variant="outline" className="rounded-full border-primary/40 hover:bg-primary/20 text-white gap-2">
                   Case Study <ArrowRight className="w-4 h-4" />
-                </Button>
+                </Button> */}
               </div>
             </div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] z-0" />
