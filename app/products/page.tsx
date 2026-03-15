@@ -64,7 +64,7 @@ function ProductCard({ service, index }: { service: typeof allServices[0], index
             </span>
           </div>
 
-          <h3 className="text-3xl md:text-5xl font-black leading-[0.9] tracking-tighter text-foreground uppercase">
+          <h3 className="text-3xl lg:text-4xl font-black leading-[0.9] tracking-tighter text-foreground uppercase text-pretty">
             {service.title.split(' ').map((word, i) => (
               <span key={i} className="block">{word}</span>
             ))}

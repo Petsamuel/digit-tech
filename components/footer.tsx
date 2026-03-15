@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MoveRight, Twitter, Linkedin, Github, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { allServices } from "@/lib/services-data";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -15,14 +16,22 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
                     {/* Brand Column */}
                     <div className="lg:col-span-2 space-y-8">
-                        <Link href="/" className="flex items-center gap-2.5 group">
-                            <img
+                        <Link href="/" className="flex items-center gap-2.5 group pr-10">
+                            <Image
                                 src="/favicon.png"
                                 alt="Digitvant Logo"
-                                className="w-7 h-7 object-contain transition-transform group-hover:scale-110"
+                                width={28}
+                                height={28}
+                                className="object-contain transition-transform group-hover:scale-110 dark:invert"
                             />
-                            <span className="text-xl font-bold tracking-tighter text-foreground relative">Digitvant<span className="text-xs text-muted-foreground absolute left-8 -bottom-2">
-                                Technology</span></span>
+                            <div className="flex flex-col -ml-1">
+                                <span className="text-xl font-bold tracking-tighter text-foreground drop-shadow-sm leading-none">
+                                    Digitvant
+                                </span>
+                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary leading-none mt-0.5">
+                                    Technology
+                                </span>
+                            </div>
                         </Link>
                         <p className="text-muted-foreground leading-relaxed max-w-sm">
                             Engineering the modular foundations of the global digital economy. Scalable, secure, and integrated technological pillars for the modern enterprise.

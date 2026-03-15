@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { allServices } from "@/lib/services-data";
 import { useScroll, useMotionValueEvent, motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,20 +57,22 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 w-full z-100 transition-all duration-500",
-        scrolled
-          ? "border-b border-border/40 backdrop-blur-xl bg-background/80 py-3 shadow-sm"
-          : mobileMenuOpen 
-            ? "bg-background py-5"
+        mobileMenuOpen
+          ? "bg-background py-5 border-b border-border/10"
+          : scrolled
+            ? "border-b border-border/40 backdrop-blur-xl bg-background/80 py-3 shadow-sm"
             : "bg-background/5 backdrop-blur-[2px] py-5 border-b border-white/5 md:bg-transparent md:backdrop-blur-0"
       )}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2.5 group pr-10">
-            <img
+            <Image
               src="/favicon.png"
               alt="Digitvant Logo"
-              className="w-7 h-7 object-contain transition-transform group-hover:scale-110 dark:invert"
+              width={28}
+              height={28}
+              className="object-contain transition-transform group-hover:scale-110 dark:invert"
             />
             <div className="flex flex-col -ml-1">
               <span className="text-xl font-bold tracking-tighter text-foreground drop-shadow-sm leading-none">
@@ -126,9 +129,9 @@ export function Header() {
               </Button>
             </>
           )}
-          
+
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 md:hidden text-foreground bg-secondary/80 rounded-xl backdrop-blur-md border border-border/20 shadow-lg relative z-110"
             aria-label="Toggle Menu"
@@ -148,9 +151,30 @@ export function Header() {
             transition={{ duration: 0.3, ease: "circOut" }}
             className="fixed inset-0 z-110 md:hidden bg-background flex flex-col pt-24"
           >
+            {/* Mobile Header Logo */}
+            <div className="absolute top-5 left-6">
+              <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMobileMenuOpen(false)}>
+                <Image
+                  src="/favicon.png"
+                  alt="Digitvant Logo"
+                  width={28}
+                  height={28}
+                  className="object-contain transition-transform group-hover:scale-110 dark:invert"
+                />
+                <div className="flex flex-col -ml-1">
+                  <span className="text-xl font-bold tracking-tighter text-foreground drop-shadow-sm leading-none">
+                    Digitvant
+                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary leading-none mt-0.5">
+                    Technology
+                  </span>
+                </div>
+              </Link>
+            </div>
+
             {/* Close button duplication for reliability inside the high-z-index overlay */}
             <div className="absolute top-5 right-6">
-               <button 
+              <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 text-foreground bg-secondary rounded-xl border border-border/20 shadow-xl"
               >
@@ -160,7 +184,7 @@ export function Header() {
 
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            
+
             <div className="flex-1 overflow-y-auto px-8 py-8 space-y-12">
               <motion.div
                 initial="hidden"
@@ -176,7 +200,7 @@ export function Header() {
               >
                 {/* Infrastructure Section */}
                 <div className="space-y-6">
-                  <motion.p 
+                  <motion.p
                     variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
                     className="text-[10px] font-black uppercase tracking-[0.3em] text-primary"
                   >
@@ -188,7 +212,7 @@ export function Header() {
                         key={service.slug}
                         variants={{ hidden: { opacity: 0, x: -15 }, visible: { opacity: 1, x: 0 } }}
                       >
-                        <Link 
+                        <Link
                           href={`/products/${service.slug}`}
                           className="group flex flex-col"
                           onClick={() => setMobileMenuOpen(false)}
@@ -214,7 +238,7 @@ export function Header() {
                       key={item.name}
                       variants={{ hidden: { opacity: 0, x: -15 }, visible: { opacity: 1, x: 0 } }}
                     >
-                      <Link 
+                      <Link
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className="text-3xl font-black tracking-tighter uppercase italic text-foreground/40 hover:text-foreground transition-all leading-none"

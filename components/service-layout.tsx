@@ -39,28 +39,28 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
   return (
     <div className="relative min-h-screen bg-background flex flex-col lg:flex-row">
       {/* Back Button */}
-      <Link 
+      <Link
         href="/products"
-        className="fixed top-24 left-8 z-110 p-4 rounded-full bg-background/95 hover:bg-primary text-foreground hover:text-white transition-all shadow-xl backdrop-blur-xl border border-border/60 group"
+        className="fixed top-24 left-8 z-110 p-3 rounded-full bg-background/95 hover:bg-primary text-foreground hover:text-white transition-all shadow-xl backdrop-blur-xl border border-border/60 group"
       >
-        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
       </Link>
 
       {/* Left Side: Visuals & Branding */}
       <div className="relative w-full lg:w-[45%] h-[400px] lg:h-screen lg:sticky lg:top-0 overflow-hidden">
-        <motion.img 
+        <motion.img
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2 }}
-          src={service.image} 
-          alt={service.title} 
+          src={service.image}
+          alt={service.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Darker overlay for better contrast in light mode */}
         <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80 z-10" />
-        
+
         <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -69,7 +69,7 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             <Icon className="w-4 h-4 text-primary brightness-150" />
             <span className="text-[10px] font-black uppercase tracking-widest text-primary brightness-150">{service.category}</span>
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -101,7 +101,7 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-8">Key Capabilities</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {features.map((feature, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -119,13 +119,13 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             </div>
           </section>
 
-          <motion.section 
+          <motion.section
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="p-8 md:p-12 rounded-[32px] bg-primary group relative overflow-hidden"
           >
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="relative z-10 flex flex-col  items-center justify-between gap-8">
               <div className="space-y-4 text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Ready to transform?</h3>
                 <p className="text-white/80 max-w-sm">Schedule a technical deep-dive with our solutions architects to build your unique roadmap.</p>
