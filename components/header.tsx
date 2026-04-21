@@ -61,7 +61,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 w-full z-100 transition-all duration-500",
+        "fixed top-0 left-0 w-full z-40 transition-all duration-500",
         mobileMenuOpen
           ? "bg-background py-5 border-b border-border/10"
           : scrolled
@@ -150,7 +150,7 @@ export function Header() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 md:hidden text-foreground bg-secondary/80 rounded-xl backdrop-blur-md border border-border/20 shadow-lg relative z-110"
+            className="p-2 md:hidden text-foreground bg-secondary/80 rounded-xl backdrop-blur-md border border-border/20 shadow-lg relative z-50"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
@@ -170,7 +170,7 @@ export function Header() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.3, ease: "circOut" }}
-            className="fixed inset-0 z-110 md:hidden bg-background flex flex-col pt-24"
+            className="fixed inset-0 z-50 md:hidden bg-background flex flex-col pt-24"
           >
             {/* Mobile Header Logo */}
             <div className="absolute top-5 left-6">
