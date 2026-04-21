@@ -20,21 +20,21 @@ const offices = [
     type: "Global Headquarters",
     address:
       "2nd Floor, Addas Mall, 8/10 Hakeem Balogun Street, Alausa-Ikeja Lagos.",
-    phone: "+234 800 DIGIT VANT",
+    phone: "+234 707 010 7347",
     email: "Info@digitvanttechnology.com",
   },
   {
     city: "Abuja",
     type: "Technical Operations",
     address: "Pinnacle Towers, Garki 2, Abuja, Nigeria",
-    phone: "+234 810 DIGIT OPS",
+    phone: "+234 708 063 7677",
     email: "Info@digitvanttechnology.com",
   },
   {
     city: "London",
     type: "European Hub",
     address: "1 Canada Square, Canary Wharf, London, UK",
-    phone: "+44 200 456 7890",
+    phone: "+234 707 010 7347",
     email: "Info@digitvanttechnology.com",
   },
 ];
@@ -239,7 +239,7 @@ export default function ContactPage() {
                 </div>
 
                 <Button className="h-14 px-12 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-lg group brand-glow transition-all hover:scale-[1.02] active:scale-[0.98]">
-                  Initialize Transmission
+                  Send Message
                 </Button>
               </form>
             </div>
