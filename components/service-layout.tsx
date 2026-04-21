@@ -1,7 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, Shield, Zap, Globe, Cpu, Landmark, Wallet, Handshake, Users, FileText, GraduationCap, Sparkles, Code } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Shield,
+  Zap,
+  Globe,
+  Cpu,
+  Landmark,
+  Wallet,
+  Handshake,
+  Users,
+  FileText,
+  GraduationCap,
+  Sparkles,
+  Code,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -30,10 +46,26 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
   const Icon = iconMap[service.iconId as keyof typeof iconMap] || Cpu;
 
   const features = [
-    { title: "Enterprise Scalability", desc: "Built to handle massive workloads with elastic scaling capabilities.", icon: Cpu },
-    { title: "Military-Grade Security", desc: "Multi-layer encryption and SOC2 compliant data protection.", icon: Shield },
-    { title: "Global Compliance", desc: "Localized for regulatory standards across multiple jurisdictions.", icon: Globe },
-    { title: "Instant Deployment", desc: "CI/CD optimized architecture for rapid feature rollout.", icon: Zap },
+    {
+      title: "Enterprise Scalability",
+      desc: "Built to handle massive workloads with elastic scaling capabilities.",
+      icon: Cpu,
+    },
+    {
+      title: "Military-Grade Security",
+      desc: "Multi-layer encryption and SOC2 compliant data protection.",
+      icon: Shield,
+    },
+    {
+      title: "Global Compliance",
+      desc: "Localized for regulatory standards across multiple jurisdictions.",
+      icon: Globe,
+    },
+    {
+      title: "Instant Deployment",
+      desc: "CI/CD optimized architecture for rapid feature rollout.",
+      icon: Zap,
+    },
   ];
 
   return (
@@ -67,7 +99,9 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/40 backdrop-blur-md"
           >
             <Icon className="w-4 h-4 text-primary brightness-150" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-primary brightness-150">{service.category}</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary brightness-150">
+              {service.category}
+            </span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -75,13 +109,14 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             transition={{ delay: 0.5 }}
             className="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase leading-[0.9] drop-shadow-2xl"
           >
-            {service.title.split(' ').map((word, i) => (
-              <span key={i} className={i === 0 ? "text-white italic" : ""}>{word} </span>
+            {service.title.split(" ").map((word, i) => (
+              <span key={i} className={i === 0 ? "text-white italic" : ""}>
+                {word}{" "}
+              </span>
             ))}
           </motion.h1>
         </div>
       </div>
-
 
       {/* Right Side Content Area */}
       <div className="flex-1 p-8 md:p-16 lg:p-24 bg-background">
@@ -91,14 +126,20 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
-            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-6">Overview</h2>
+            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-6">
+              Overview
+            </h2>
             <p className="text-xl md:text-2xl text-foreground leading-relaxed font-medium">
-              {service.description} Our infrastructure is engineered to provide seamless integration and unparalleled performance for the modern digital economy.
+              {service.description} Our infrastructure is engineered to provide
+              seamless integration and unparalleled performance for the modern
+              digital economy.
             </p>
           </motion.section>
 
           <section>
-            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-8">Key Capabilities</h2>
+            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-8">
+              Key Capabilities
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {features.map((feature, i) => (
                 <motion.div
@@ -106,14 +147,16 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: (i * 0.15) }}
+                  transition={{ delay: i * 0.15 }}
                   className="space-y-3 group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300 border border-primary/20">
                     <feature.icon className="w-5 h-5 text-primary group-hover:text-white" />
                   </div>
                   <h3 className="font-bold text-lg">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -127,13 +170,23 @@ export function ServiceLayout({ service }: ServiceLayoutProps) {
           >
             <div className="relative z-10 flex flex-col  items-center justify-between gap-8">
               <div className="space-y-4 text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Ready to transform?</h3>
-                <p className="text-white/80 max-w-sm">Schedule a technical deep-dive with our solutions architects to build your unique roadmap.</p>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
+                  Ready to transform?
+                </h3>
+                <p className="text-white/80 max-w-sm">
+                  Schedule a technical deep-dive with our solutions architects
+                  to build your unique roadmap.
+                </p>
               </div>
-              <Button size="lg" className="rounded-full px-8 bg-white text-primary hover:bg-white/90 h-14 group">
-                Contact Sales
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 bg-white text-primary hover:bg-white/90 h-14 group"
+                >
+                  Contact Sales
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </motion.section>
         </div>

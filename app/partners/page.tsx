@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Handshake, ArrowRight, Globe, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const partners = [
   { name: "Digitvant", logo: "/digitvant.png" },
@@ -28,13 +29,17 @@ export default function PartnersPage() {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <h4 className="text-primary font-bold tracking-[0.4em] text-xs uppercase italic relative inline-block">Global Network</h4>
+            <h4 className="text-primary font-bold tracking-[0.4em] text-xs uppercase italic relative inline-block">
+              Global Network
+            </h4>
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-foreground uppercase leading-[0.85]">
               Ecosystem <br />
               <span className="text-primary italic">Intelligence</span>
             </h1>
             <p className="text-xl text-foreground font-medium max-w-2xl leading-relaxed">
-              Scale faster together. We partner with the world's most innovative institutions to build the future of modular financial infrastructure.
+              Scale faster together. We partner with the world's most innovative
+              institutions to build the future of modular financial
+              infrastructure.
             </p>
           </motion.div>
         </div>
@@ -68,8 +73,6 @@ export default function PartnersPage() {
           </motion.div>
         </div>
 
-
-
         {/* Final CTA */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -80,15 +83,22 @@ export default function PartnersPage() {
           <div className="relative z-10 max-w-2xl mx-auto space-y-8">
             <Handshake className="w-16 h-16 mx-auto opacity-50 mb-4" />
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9]">
-              Let's Build the <br /> <span className="italic opacity-80">Next Pillar</span>
+              Let's Build the <br />{" "}
+              <span className="italic opacity-80">Next Pillar</span>
             </h2>
             <p className="text-white/90 text-xl font-medium">
-              Join 100+ strategic partners empowering the modern global enterprise.
+              Join 100+ strategic partners empowering the modern global
+              enterprise.
             </p>
-            <Button size="lg" className="rounded-full px-12 bg-white text-primary hover:bg-white/95 h-20 text-xl font-bold group">
-              Apply to Partner
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="rounded-full px-12 bg-white text-primary hover:bg-white/95 h-20 text-xl font-bold group"
+              >
+                Apply to Partner
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+              </Button>
+            </Link>
           </div>
           <div className="absolute inset-0 bg-linear-to-tr from-black/20 to-transparent" />
         </motion.div>

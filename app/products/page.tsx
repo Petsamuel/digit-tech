@@ -1,11 +1,23 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles, ChevronRight, Landmark, Wallet, Handshake, Users, FileText, GraduationCap, Code } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  ChevronRight,
+  Landmark,
+  Wallet,
+  Handshake,
+  Users,
+  FileText,
+  GraduationCap,
+  Code,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { allServices } from "@/lib/services-data";
+import Link from "next/link";
 
 const iconMap = {
   landmark: Landmark,
@@ -18,7 +30,13 @@ const iconMap = {
   code: Code,
 };
 
-function ProductCard({ service, index }: { service: typeof allServices[0], index: number }) {
+function ProductCard({
+  service,
+  index,
+}: {
+  service: (typeof allServices)[0];
+  index: number;
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
   const Icon = iconMap[service.iconId as keyof typeof iconMap] || Sparkles;
@@ -56,7 +74,9 @@ function ProductCard({ service, index }: { service: typeof allServices[0], index
       <div className="relative z-20 flex flex-col h-full p-8 md:p-12 justify-between">
         <div className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className={`p-3 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-500`}>
+            <div
+              className={`p-3 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-500`}
+            >
               <Icon className="w-6 h-6 text-primary group-hover:text-white" />
             </div>
             <span className="text-xs font-black uppercase tracking-[0.3em] text-primary/80">
@@ -65,8 +85,10 @@ function ProductCard({ service, index }: { service: typeof allServices[0], index
           </div>
 
           <h3 className="text-3xl lg:text-4xl font-black leading-[0.9] tracking-tighter text-foreground uppercase text-pretty">
-            {service.title.split(' ').map((word, i) => (
-              <span key={i} className="block">{word}</span>
+            {service.title.split(" ").map((word, i) => (
+              <span key={i} className="block">
+                {word}
+              </span>
             ))}
           </h3>
         </div>
@@ -90,7 +112,9 @@ function ProductCard({ service, index }: { service: typeof allServices[0], index
 
           <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-foreground group/btn">
             <span>Access Infrastructure</span>
-            <ChevronRight className={`w-5 h-5 text-primary transition-transform duration-500 ${isHovered ? 'translate-x-3' : ''}`} />
+            <ChevronRight
+              className={`w-5 h-5 text-primary transition-transform duration-500 ${isHovered ? "translate-x-3" : ""}`}
+            />
           </div>
         </div>
       </div>
@@ -115,13 +139,16 @@ export default function ProductsPage() {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h4 className="text-primary font-bold tracking-[0.4em] text-xs uppercase">Enterprise Ecosystem</h4>
+          <h4 className="text-primary font-bold tracking-[0.4em] text-xs uppercase">
+            Enterprise Ecosystem
+          </h4>
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-foreground uppercase leading-[0.85]">
             Modular <br />
             <span className="text-primary italic">Intelligence</span>
           </h1>
           <p className="text-xl text-foreground font-medium max-w-2xl leading-relaxed">
-            Scalable, secure, and integrated technological pillars designed for the modern global enterprise infrastructure.
+            Scalable, secure, and integrated technological pillars designed for
+            the modern global enterprise infrastructure.
           </p>
         </motion.div>
       </div>
@@ -146,17 +173,24 @@ export default function ProductsPage() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9]">
-                Custom <br /> <span className="italic opacity-80">Architecture?</span>
+                Custom <br />{" "}
+                <span className="italic opacity-80">Architecture?</span>
               </h2>
               <p className="text-white text-xl max-w-md font-medium">
-                Our solutions architects can design a custom technological stack tailored specifically to your organizational nodes.
+                Our solutions architects can design a custom technological stack
+                tailored specifically to your organizational nodes.
               </p>
             </div>
             <div className="flex lg:justify-end">
-              <Button size="lg" className="rounded-full px-12 bg-white text-primary hover:bg-white/95 h-20 text-xl font-bold group">
-                Request a Technical Audit
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="rounded-full px-12 bg-white text-primary hover:bg-white/95 h-20 text-xl font-bold group"
+                >
+                  Request a Technical Audit
+                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </div>
           {/* Abstract background shapes */}
