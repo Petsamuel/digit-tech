@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,12 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { allServices } from "@/lib/services-data";
-import { useScroll, useMotionValueEvent, motion, AnimatePresence } from "framer-motion";
+import {
+  useScroll,
+  useMotionValueEvent,
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import Image from "next/image";
 
 export function Header() {
@@ -61,7 +66,7 @@ export function Header() {
           ? "bg-background py-5 border-b border-border/10"
           : scrolled
             ? "border-b border-border/40 backdrop-blur-xl bg-background/80 py-3 shadow-sm"
-            : "bg-background/5 backdrop-blur-[2px] py-5 border-b border-white/5 md:bg-transparent md:backdrop-blur-0"
+            : "bg-background/5 backdrop-blur-[2px] py-5 border-b border-white/5 md:bg-transparent md:backdrop-blur-0",
       )}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -91,10 +96,19 @@ export function Header() {
                   Products
                   <ChevronDown className="w-3 h-3 opacity-50" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 bg-background/95 backdrop-blur-md border-border/50 shadow-2xl" align="start">
+                <DropdownMenuContent
+                  className="w-56 bg-background/95 backdrop-blur-md border-border/50 shadow-2xl"
+                  align="start"
+                >
                   {allServices.map((service) => (
-                    <DropdownMenuItem key={service.slug} className="cursor-pointer focus:bg-primary/10 py-2.5">
-                      <Link href={`/products/${service.slug}`} className="w-full font-medium">
+                    <DropdownMenuItem
+                      key={service.slug}
+                      className="cursor-pointer focus:bg-primary/10 py-2.5"
+                    >
+                      <Link
+                        href={`/products/${service.slug}`}
+                        className="w-full font-medium"
+                      >
                         {service.title}
                       </Link>
                     </DropdownMenuItem>
@@ -118,14 +132,17 @@ export function Header() {
         <div className="flex items-center gap-2 md:gap-4">
           {!mobileMenuOpen && (
             <>
-              <Link href="/try" className="text-sm font-bold transition-colors text-muted-foreground hover:text-foreground hidden lg:block drop-shadow-sm">
+              <Link
+                href="/contact"
+                className="text-sm font-bold transition-colors text-muted-foreground hover:text-foreground hidden lg:block drop-shadow-sm"
+              >
                 Try for Free
               </Link>
               <div className="hidden sm:block">
                 <ModeToggle />
               </div>
               <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 font-bold shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95 hidden sm:flex">
-                Get Started
+                <Link href="/contact">Get Started</Link>
               </Button>
             </>
           )}
@@ -136,7 +153,11 @@ export function Header() {
             className="p-2 md:hidden text-foreground bg-secondary/80 rounded-xl backdrop-blur-md border border-border/20 shadow-lg relative z-110"
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </nav>
@@ -153,7 +174,11 @@ export function Header() {
           >
             {/* Mobile Header Logo */}
             <div className="absolute top-5 left-6">
-              <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href="/"
+                className="flex items-center gap-2.5 group"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 <Image
                   src="/favicon.png"
                   alt="Digitvant Logo"
@@ -193,15 +218,18 @@ export function Header() {
                   hidden: { opacity: 0 },
                   visible: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-                  }
+                    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+                  },
                 }}
                 className="space-y-12"
               >
                 {/* Infrastructure Section */}
                 <div className="space-y-6">
                   <motion.p
-                    variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
+                    variants={{
+                      hidden: { opacity: 0, x: -10 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
                     className="text-[10px] font-black uppercase tracking-[0.3em] text-primary"
                   >
                     Infrastructure
@@ -210,7 +238,10 @@ export function Header() {
                     {allServices.map((service) => (
                       <motion.div
                         key={service.slug}
-                        variants={{ hidden: { opacity: 0, x: -15 }, visible: { opacity: 1, x: 0 } }}
+                        variants={{
+                          hidden: { opacity: 0, x: -15 },
+                          visible: { opacity: 1, x: 0 },
+                        }}
                       >
                         <Link
                           href={`/products/${service.slug}`}
@@ -218,7 +249,7 @@ export function Header() {
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <span className="text-2xl font-black tracking-tighter uppercase group-hover:text-primary transition-colors leading-none">
-                            {service.title.split(' (')[0]}
+                            {service.title.split(" (")[0]}
                           </span>
                           <span className="text-[10px] font-bold text-muted-foreground mt-1.5 opacity-60">
                             VIEW MODULE &rarr;
@@ -236,7 +267,10 @@ export function Header() {
                   {navItems.map((item) => (
                     <motion.div
                       key={item.name}
-                      variants={{ hidden: { opacity: 0, x: -15 }, visible: { opacity: 1, x: 0 } }}
+                      variants={{
+                        hidden: { opacity: 0, x: -15 },
+                        visible: { opacity: 1, x: 0 },
+                      }}
                     >
                       <Link
                         href={item.href}
@@ -255,7 +289,9 @@ export function Header() {
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
                   <p className="text-sm font-bold">Appearance</p>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Switch Theme</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
+                    Switch Theme
+                  </p>
                 </div>
                 <ModeToggle />
               </div>

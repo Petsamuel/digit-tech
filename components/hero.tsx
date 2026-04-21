@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight, MoveRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -45,7 +46,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-6 max-w-4xl font-display"
         >
-          The Digital Infrastructure  <br />
+          The Digital Infrastructure <br />
           <span className="text-foreground">Your Organization Needs</span>
         </motion.h1>
 
@@ -55,7 +56,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-medium"
         >
-          Engineering the future of modular financial technology. Scalable, <br className="hidden md:block" />
+          Engineering the future of modular financial technology. Scalable,{" "}
+          <br className="hidden md:block" />
           secure, and integrated pillars for the modern digital economy.
         </motion.p>
 
@@ -65,12 +67,19 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-row items-center gap-4"
         >
-          <Button variant="outline" size="lg" className="rounded-full px-8 bg-secondary/50 border-border hover:bg-secondary transition-all font-bold gap-2">
-            Request Demo
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full px-8 bg-secondary/50 border-border hover:bg-secondary transition-all font-bold gap-2"
+          >
+            <Link href="/contact">Request Demo</Link>
             <ChevronRight className="w-4 h-4 opacity-70" />
           </Button>
-          <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-bold shadow-xl shadow-primary/20 brand-glow">
-            Get Started
+          <Button
+            size="lg"
+            className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-bold shadow-xl shadow-primary/20 brand-glow"
+          >
+            <Link href="/contact">Get Started</Link>
             <MoveRight className="w-4 h-4" />
           </Button>
         </motion.div>
